@@ -41,7 +41,7 @@ fi
 
 if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
  then
-     echo -e "$Y dir present $N"
+     echo -e "$Y /app $G dir present $N"
  else
      echo -e "$G dir not present creating $N"
      mkdir /app
@@ -58,7 +58,7 @@ fi
 cd /app 
 VALIDATE $? "changeing to app Directory"
 
-if [ -e .json ]   # For file "if [ -f /home/rama/file ]"
+if [ -f /app/package.jon ]
  then
      echo -e "$Y data present $N"
  else
