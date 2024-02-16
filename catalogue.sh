@@ -1,7 +1,7 @@
 #!/bin/bash
 DATE=$(date +%x-%T)
 USER_ID=$(id -u)
-USER=$(id "roboshop")
+USER_NAME=$(id roboshop)
 FILE=/tmp/$0.logs
 R="\e[31m"
 G="\e[32m"
@@ -33,11 +33,11 @@ VALIDATE $? "module enable nodejs:18"
 dnf install nodejs -y >> $FILE
 VALIDATE $? "install nodejs"
 
-if [ $USER -ne 0 ]
- then
-        useradd roboshop
- else    
-        echo -e "$Y user roboshop is already exist $N"
+if [ $USER_NAME -eq 0 ]
+then
+    echo -e "$Y user roboshop is already exist $N"
+else    
+    usersdd roboshop
 fi
 
 if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
