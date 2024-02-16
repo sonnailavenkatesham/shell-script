@@ -36,7 +36,7 @@ VALIDATE $? "Changed to html"
 unzip /tmp/web.zip
 VALIDATE $? "Unziping web"
 
-cp /home/centos/shell-script/roboshop.conf /etc/nginx/default.d/roboshop.conf 
+cp /tmp/shell-script/roboshop.conf /etc/nginx/default.d/roboshop.conf 
 VALIDATE $? "copying roboshop.conf"
 
 systemctl enable nginx

@@ -20,7 +20,7 @@ VALIDATE(){
     fi
 }
 
-cp /home/centos/shell-script/mongo.repo /etc/yum.repos.d/mongo.repo 
+cp /tmp/shell-script/mongo.repo /etc/yum.repos.d/mongo.repo 
 
 VALIDATE $? "copying mongo.repo"
 
