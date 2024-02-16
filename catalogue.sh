@@ -2,7 +2,7 @@
 DATE=$(date +%x-%T)
 USER_ID=$(id -u)
 USER=$(id roboshop)
-FILE=/tmp/$0-$DATE.logs
+FILE=/tmp/$0.logs
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
