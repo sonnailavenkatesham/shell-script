@@ -91,3 +91,6 @@ VALIDATE $? "install mongodb-org-shell"
 
 mongo --host mongodb.venkateshamsonnalia143.online < /app/schema/catalogue.js
 VALIDATE $? "connecting to host server"
+
+systemctl start catalogue
+VALIDATE $? "start catalogue"

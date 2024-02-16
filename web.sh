@@ -24,6 +24,10 @@ VALIDATE(){
 dnf install nginx -y
 VALIDATE $? "install nginx"
 
+systemctl enable nginx
+
+systemctl start nginx
+
 rm -rf /usr/share/nginx/html/*
 VALIDATE $? "removing html/*"
 
@@ -42,5 +46,5 @@ VALIDATE $? "copying roboshop.conf"
 systemctl enable nginx
 VALIDATE $? "enable nginx"
 
-systemctl start nginx
-VALIDATE $? "start nginx"
+systemctl restart nginx
+VALIDATE $? "restarting nginx"
