@@ -24,26 +24,23 @@ VALIDATE(){
 dnf install nginx -y
 VALIDATE $? "install nginx"
 
-systemctl enable nginx
-VALIDATE $? "enable nginx"
-
-systemctl restart nginx
-VALIDATE $? "start nginx"
-
 rm -rf /usr/share/nginx/html/*
 VALIDATE $? "removing html/*"
 
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
 VALIDATE $? "Downloaded web zip file"
 
-cd /usr/share/nginx/html
-VALIDATE $? "Changed to html "
+cd /usr/share/nginx/html/
+VALIDATE $? "Changed to html"
 
 unzip /tmp/web.zip
 VALIDATE $? "Unziping web"
 
-cp /home/centos/Shell/roboshop.conf /etc/nginx/default.d/roboshop.conf 
+cp /home/centos/shell-script/roboshop.conf /etc/nginx/default.d/roboshop.conf 
 VALIDATE $? "copying roboshop.conf"
 
-systemctl restart nginx  
-VALIDATE $? "restart nginx"
+systemctl enable nginx
+VALIDATE $? "enable nginx"
+
+systemctl start nginx
+VALIDATE $? "start nginx"

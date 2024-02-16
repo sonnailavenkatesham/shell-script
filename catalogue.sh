@@ -47,9 +47,13 @@ if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
      mkdir /app
 fi
 
-
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-VALIDATE $? "downloading zip file"
+if [ -d /tmp/catalogue.zip ]   # For file "if [ -f /home/rama/file ]"
+ then
+     echo -e "$Y dir present $N"
+ else
+     echo -e "$G catalogue.zip dir not present creating $N"
+     curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+fi
 
 cd /app 
 VALIDATE $? "changeing to app Directory"
