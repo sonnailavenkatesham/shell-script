@@ -47,7 +47,7 @@ if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
      mkdir /app
 fi
 
-if [ -d /tmp/catalogue.zip ]   # For file "if [ -f /home/rama/file ]"
+if [ -f /tmp/catalogue.zip ]   # For file "if [ -f /home/rama/file ]"
  then
      echo -e "$Y catalogue.zip dir present $N"
  else
@@ -56,7 +56,7 @@ if [ -d /tmp/catalogue.zip ]   # For file "if [ -f /home/rama/file ]"
 fi
 
 cd /app 
-VALIDATE $? "changeing to app Directory"
+VALIDATE $? "changed to app Directory"
 
 if [ -f /app/package.jon ]
  then
