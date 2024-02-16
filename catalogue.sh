@@ -37,7 +37,7 @@ if [ $USER_NAME -eq 0 ]
 then
     echo -e "$Y user roboshop is already exist $N"
 else    
-    usersdd roboshop
+    useradd roboshop
 fi
 
 if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
