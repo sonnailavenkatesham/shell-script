@@ -1,7 +1,7 @@
 #!/bin/bash
 DATE=$(date +%x-%T)
 USER_ID=$(id -u)
-USER=$(id roboshop)
+USER=$(id "roboshop")
 FILE=/tmp/$0.logs
 R="\e[31m"
 G="\e[32m"
@@ -34,10 +34,10 @@ dnf install nodejs -y >> $FILE
 VALIDATE $? "install nodejs"
 
 if [ $USER -ne 0 ]
-then
-    useradd roboshop
-else    
-    echo -e "$Y user roboshop is already exist $N"
+ then
+        useradd roboshop
+ else    
+        echo -e "$Y user roboshop is already exist $N"
 fi
 
 if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
@@ -66,13 +66,11 @@ if [ -d /app/schema ]
      echo -e "$G "unzinping catalogue" $N"
      unzip /tmp/catalogue.zip >> $FILE
 fi
-# unzip /tmp/catalogue.zip
-# VALIDATE $? "unzinping catalogue"
 
 npm install >> $FILE
 VALIDATE $? "npm install "
 
-cp /home/centos/shell-script/catalogue.service /etc/systemd/system/catalogue.service
+cp /tmp/shell-script/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "coping catalogue.service"
 
 systemctl daemon-reload
@@ -84,7 +82,7 @@ VALIDATE $? "enable catalogue"
 systemctl start catalogue
 VALIDATE $? "start catalogue"
 
-cp /home/centos/shell-script/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /tmp/shell-script/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "copying mongo.repo"
 
 yum install mongodb-org-shell -y >> $FILE
