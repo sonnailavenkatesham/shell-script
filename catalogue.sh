@@ -49,17 +49,24 @@ fi
 
 if [ -d /tmp/catalogue.zip ]   # For file "if [ -f /home/rama/file ]"
  then
-     echo -e "$Y dir present $N"
+     echo -e "$Y catalogue.zip dir present $N"
  else
-     echo -e "$G catalogue.zip dir not present creating $N"
+     echo -e "$G catalogue.zip Download the application code $N"
      curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 fi
 
 cd /app 
 VALIDATE $? "changeing to app Directory"
 
-unzip /tmp/catalogue.zip
-VALIDATE $? "unzinping catalogue"
+if [ -d /app/* ]   # For file "if [ -f /home/rama/file ]"
+ then
+     echo -e "$Y data present $N"
+ else
+     echo -e "$G "unzinping catalogue" $N"
+     unzip /tmp/catalogue.zip
+fi
+# unzip /tmp/catalogue.zip
+# VALIDATE $? "unzinping catalogue"
 
 npm install 
 VALIDATE $? "npm install "
