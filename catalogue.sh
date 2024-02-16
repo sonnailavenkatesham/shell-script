@@ -1,8 +1,7 @@
 #!/bin/bash
 DATE=$(date +%x-%T)
 USER_ID=$(id -u)
-USER_NAME=$(id "roboshop")
-APP=$(ls "/app")
+USER=$(id roboshop)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -33,18 +32,19 @@ VALIDATE $? "module enable nodejs:18"
 dnf install nodejs -y
 VALIDATE $? "install nodejs"
 
-if [ id roboshop -ne 0 ]
+if [ $USER -ne 0 ]
 then
     useradd roboshop
 else    
     echo -e "$Y user roboshop is already exist $N"
 fi
 
-if [ $APP -ne 0 ] 
-then
-    mkdir /app 
-else
-    echo -e " $Y /app does exist $N"
+if [ -d /app ]   # For file "if [ -f /home/rama/file ]"
+ then
+     echo -e "$Y dir present $N"
+ else
+     echo -e "$G dir not present creating $N"
+     mkdir /app
 fi
 
 
