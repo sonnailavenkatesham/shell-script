@@ -60,7 +60,7 @@ VALIDATE $? "unzinping catalogue"
 npm install 
 VALIDATE $? "npm install "
 
-cp /home/centos/Shell/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/shell-script/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "coping catalogue.service"
 
 systemctl daemon-reload
@@ -72,7 +72,7 @@ VALIDATE $? "enable catalogue"
 systemctl start catalogue
 VALIDATE $? "start catalogue"
 
-cp /home/centos/Shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/centos/shell-script/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "copying mongo.repo"
 
 yum install mongodb-org-shell -y
