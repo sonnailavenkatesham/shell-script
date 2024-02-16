@@ -58,7 +58,7 @@ fi
 cd /app 
 VALIDATE $? "changed to app Directory"
 
-if [ -f /app/package.jon ]
+if [ -d /app/schema ]
  then
      echo -e "$Y data present $N"
  else
