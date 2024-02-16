@@ -58,7 +58,7 @@ fi
 cd /app 
 VALIDATE $? "changeing to app Directory"
 
-if [ -d /app/* ]   # For file "if [ -f /home/rama/file ]"
+if [ -e .json ]   # For file "if [ -f /home/rama/file ]"
  then
      echo -e "$Y data present $N"
  else
